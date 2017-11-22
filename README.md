@@ -13,6 +13,7 @@ Simple single-file PHP error page with random Gif fetched from Giphy
 ## Nginx sample configuration
 
 * `/etc/nginx/sites-available/my-site.conf`
+
 ```nginx
 # ...
 
@@ -21,10 +22,10 @@ set $errorTheme light;
 include custom-errors.conf;
 
 # ...
-
 ```
 
 * `/etc/nginx/custom-errors.conf`
+
 ```nginx
 error_page 403 /RandomGifErrorPage/error.php?err=403+Forbidden;
 error_page 404 /RandomGifErrorPage/error.php?err=404+Not+Found;
