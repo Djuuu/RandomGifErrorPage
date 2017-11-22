@@ -52,6 +52,7 @@ location ^~ /RandomGifErrorPage/error.php {
 ## Apache sample configuration
 
 * `/etc/apache2/httpd.conf`
+
 ```ApacheConf
 Alias "/RandomGifErrorPage" "/path/to/RandomGifErrorPage"
 
