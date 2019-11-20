@@ -2,8 +2,8 @@
 
 $error = (!empty($_GET['err']))            ? $_GET['err']            : null;
 $tag   = (!empty($_GET['tag']))            ? $_GET['tag']            : 'nope';
-$theme = (!empty($_SERVER['ERROR_THEME'])) ? $_SERVER['ERROR_THEME'] : (
-         (!empty($_GET['theme']))          ? $_GET['theme']          : 'light');
+$theme = (!empty($_GET['theme']))          ? $_GET['theme'] : (
+         (!empty($_SERVER['ERROR_THEME'])) ? $_SERVER['ERROR_THEME'] : 'light');
 
 switch ($theme) {
     case 'dark':
