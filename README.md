@@ -1,7 +1,8 @@
 # RandomGifErrorPage
 
-Simple single-file PHP error page with random Gif fetched from Giphy
+Simple single-file PHP error page with random Gif fetched from Giphy.
 
+https://giphy.com/
 
 # Usage
 
@@ -18,6 +19,8 @@ Simple single-file PHP error page with random Gif fetched from Giphy
 # ...
 
 set $errorTheme light;
+set $giphyApiKey "***change*me***";
+set $giphyRating r;
 
 include custom-errors.conf;
 
@@ -46,6 +49,8 @@ location ^~ /RandomGifErrorPage/error.php {
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     
     fastcgi_param ERROR_THEME $errorTheme;
+    fastcgi_param GIPHY_API_KEY $giphyApiKey;
+    fastcgi_param GIPHY_RATING $giphyRating;
 }
 ```
 

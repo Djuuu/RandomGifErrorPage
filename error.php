@@ -1,9 +1,11 @@
 <?php
 
-$error = (!empty($_GET['err']))            ? $_GET['err']            : null;
-$tag   = (!empty($_GET['tag']))            ? $_GET['tag']            : 'nope';
-$theme = (!empty($_GET['theme']))          ? $_GET['theme'] : (
-         (!empty($_SERVER['ERROR_THEME'])) ? $_SERVER['ERROR_THEME'] : 'light');
+$apiKey = $_SERVER['GIPHY_API_KEY'] ?? '';
+
+$error  =  $_GET['err']    ?? null;
+$tag    =  $_GET['tag']    ?? 'nope';
+$rating =  $_GET['rating'] ?? $_SERVER['GIPHY_RATING'] ?? 'g';
+$theme  =  $_GET['theme']  ?? $_SERVER['ERROR_THEME'] ?? 'light';
 
 switch ($theme) {
     case 'dark':
@@ -19,16 +21,24 @@ switch ($theme) {
         $creditImg       = 'data:image/png;base64,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';
 }
 
-
 class Giphy {
 
-    private $apiKey = 'dc6zaTOxFJmzC';
+    private $apiKey;
 
-    private $urlFormat = 'http://api.giphy.com/v1/gifs/random?api_key=%s&tag=%s';
+    private $urlFormat = 'https://api.giphy.com/v1/gifs/random?api_key=%s&tag=%s&rating=%s';
 
-    public function getRandomGif($tag)
+    public function __construct(string $apiKey)
     {
-        $curl = curl_init(sprintf($this->urlFormat, $this->apiKey, $tag));
+        $this->apiKey = $apiKey;
+    }
+
+    public function getRandomGif(string $tag, string $rating = 'g')
+    {
+        if (!$this->apiKey) {
+            return null;
+        }
+
+        $curl = curl_init(sprintf($this->urlFormat, $this->apiKey, $tag, $rating));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $return = curl_exec($curl);
         curl_close($curl);
@@ -39,23 +49,17 @@ class Giphy {
 
         $result = json_decode($return, true);
 
-        if (empty($result['data']['image_url'])) {
-            return null;
-        }
+        $imgUrl = $result['data']['images']['original']['url'] ?? null;
 
-        // strip protocol
-        return substr(
-                $result['data']['image_url'],
-                strpos($result['data']['image_url'], '/')
-        );
+        return $imgUrl
+            ? substr($imgUrl, strpos($imgUrl, '/')) // strip protocol
+            : null;
     }
 }
 
-$giphy = new Giphy();
-
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title><?= $error ?></title>
     <meta charset='utf-8'>
@@ -70,6 +74,9 @@ $giphy = new Giphy();
         h1 {
             margin: 1em auto 2em;
         }
+        pre {
+            font-size: 2rem;
+        }
         footer {
             position: absolute;
             bottom: 1em;
@@ -81,8 +88,10 @@ $giphy = new Giphy();
 
 <h1><?= $error ?></h1>
 
-<?php if ($imgUrl = $giphy->getRandomGif($tag)): ?>
+<?php if ($imgUrl = (new Giphy($apiKey))->getRandomGif($tag, $rating)): ?>
     <img src="<?= $imgUrl ?>" alt="nope!"/>
+<?php else: ?>
+    <pre>¯\_(ツ)_/¯</pre>
 <?php endif ?>
 
 <footer>
